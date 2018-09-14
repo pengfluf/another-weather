@@ -2,6 +2,7 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
 
 import sortDays from 'helpers/sortDays';
+import normalizeSearched from 'helpers/normalizeSearched';
 
 import {
   API_KEY,
@@ -28,7 +29,7 @@ export function* fetchSearched(action) {
       }`,
     );
     yield put(stopFetching());
-    yield put(receiveSearched(cities.data.list));
+    yield put(receiveSearched(normalizeSearched(cities.data.list)));
   } catch (error) {
     yield put(stopFetching());
     yield put(receiveError(error));

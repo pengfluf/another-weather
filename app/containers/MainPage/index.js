@@ -81,6 +81,12 @@ export class MainPage extends React.Component {
             <Weather
               weather={weather}
               cityId={cityId}
+              fields={fields}
+              searched={searched}
+              fetching={fetching}
+              updateField={this.props.updateField}
+              updateDynamicField={this.updateDynamicField}
+              updateCityId={this.props.updateCityId}
               getWeather={this.props.getWeather}
               {...props}
             />

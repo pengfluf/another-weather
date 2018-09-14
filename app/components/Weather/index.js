@@ -7,7 +7,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Header from 'components/Header';
 import WeatherDay from 'components/WeatherDay';
+import Loading from 'components/Loading';
 
 class Weather extends React.Component {
   componentDidMount() {
@@ -16,9 +18,29 @@ class Weather extends React.Component {
 
   render() {
     const { list, city } = this.props.weather;
+    const {
+      fields,
+      searched,
+      fetching,
+      cityId,
+      updateField,
+      updateDynamicField,
+      updateCityId,
+      getWeather,
+    } = this.props;
     if (list) {
       return (
         <div>
+          <Header
+            fields={fields}
+            searched={searched}
+            fetching={fetching}
+            cityId={cityId}
+            updateField={updateField}
+            updateDynamicField={updateDynamicField}
+            updateCityId={updateCityId}
+            getWeather={getWeather}
+          />
           <h1>
             {city.name}, {city.country}
           </h1>
@@ -28,7 +50,7 @@ class Weather extends React.Component {
         </div>
       );
     }
-    return null;
+    return <Loading />;
   }
 }
 
@@ -40,8 +62,17 @@ Weather.propTypes = {
       country: PropTypes.string,
     }),
   }),
-  getWeather: PropTypes.func,
+  fields: PropTypes.shape({
+    username: PropTypes.string,
+    city: PropTypes.string,
+  }),
+  searched: PropTypes.array,
+  fetching: PropTypes.bool,
   cityId: PropTypes.number,
+  updateField: PropTypes.func,
+  updateDynamicField: PropTypes.func,
+  updateCityId: PropTypes.func,
+  getWeather: PropTypes.func,
 };
 
 export default Weather;

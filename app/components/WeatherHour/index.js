@@ -9,11 +9,12 @@ import PropTypes from 'prop-types';
 
 import Wrapper from './styled/Wrapper';
 
-function WeatherHour({ time, main, weather }) {
+function WeatherHour({ time, main, weather, wind }) {
   return (
     <Wrapper>
       <p>{time}:00</p>
       <p>{Math.round(main.temp)}°C</p>
+      <p>{Math.round(wind.speed)} m/s</p>
       <p>{weather[0].description}</p>
       <img
         src={`http://openweathermap.org/img/w/${weather[0].icon}.png`}

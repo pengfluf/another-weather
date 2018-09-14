@@ -9,7 +9,7 @@ export default function sortDays(list) {
     if (prevDay !== currentDay) {
       result.push({
         day: currentDay,
-        hours: [],
+        hours: [{ time: currentHour, ...item }],
       });
     }
 

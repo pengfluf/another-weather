@@ -9,17 +9,30 @@ import PropTypes from 'prop-types';
 
 import Wrapper from './styled/Wrapper';
 
-function CityPreview({ city, updateField, updateCityId }) {
+function CityPreview({
+  city,
+  updateField,
+  updateCityId,
+  getWeather,
+}) {
+  const { id, name, sys } = city;
   return (
     <Wrapper
       onClick={() => {
-        updateField('city', `${city.name}, ${city.sys.country}`);
-        updateCityId(city.id);
+        updateField('city', `${name}, ${sys.country}`);
+        updateCityId(id);
+        if (getWeather) {
+          getWeather(id);
+        }
       }}
     >
       <p>
-        {city.name}, {city.sys.country}
+        {name}, {sys.country}
       </p>
+      <img
+        src={`http://openweathermap.org/images/flags/${sys.country.toLowerCase()}.png`}
+        alt=""
+      />
     </Wrapper>
   );
 }
@@ -31,6 +44,9 @@ CityPreview.propTypes = {
       country: PropTypes.string,
     }),
   }),
+  updateField: PropTypes.func,
+  updateCityId: PropTypes.func,
+  getWeather: PropTypes.func,
 };
 
 export default CityPreview;
