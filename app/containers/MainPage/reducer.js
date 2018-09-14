@@ -24,7 +24,7 @@ export const initialState = fromJS({
     city: '',
   },
   searched: [],
-  weather: [],
+  weather: {},
   fetching: false,
   error: null,
   timer: null,

@@ -49,7 +49,13 @@ export class MainPage extends React.Component {
   }
 
   render() {
-    const { fields, searched, fetching, error } = this.props.mainPage;
+    const {
+      fields,
+      searched,
+      fetching,
+      cityId,
+      weather,
+    } = this.props.mainPage;
     return (
       <Switch>
         <Redirect exact from="/" to="/welcome" />
@@ -60,16 +66,25 @@ export class MainPage extends React.Component {
               fields={fields}
               searched={searched}
               fetching={fetching}
+              cityId={cityId}
               updateField={this.props.updateField}
               updateDynamicField={this.updateDynamicField}
               updateCityId={this.props.updateCityId}
+              historyPush={this.props.history.push}
               {...props}
             />
           )}
         />
         <Route
           path="/weather"
-          render={props => <Weather {...props} />}
+          render={props => (
+            <Weather
+              weather={weather}
+              cityId={cityId}
+              getWeather={this.props.getWeather}
+              {...props}
+            />
+          )}
         />
       </Switch>
     );
@@ -82,13 +97,20 @@ MainPage.propTypes = {
       username: PropTypes.string,
       city: PropTypes.string,
     }),
+    fetching: PropTypes.bool,
     searched: PropTypes.array,
     timer: PropTypes.number,
+    cityId: PropTypes.number,
+    weather: PropTypes.object,
   }),
   findCity: PropTypes.func,
   getWeather: PropTypes.func,
   updateField: PropTypes.func,
   updateTimer: PropTypes.func,
+  updateCityId: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
 };
 
 const mapStateToProps = createStructuredSelector({

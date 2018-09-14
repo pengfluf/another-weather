@@ -13,9 +13,11 @@ function Welcome({
   fields,
   searched,
   fetching,
+  cityId,
   updateField,
   updateDynamicField,
   updateCityId,
+  historyPush,
 }) {
   const { username, city } = fields;
   return (
@@ -34,7 +36,19 @@ function Welcome({
         updateDynamicField={updateDynamicField}
         updateCityId={updateCityId}
       />
-      <button>Сохранить</button>
+      <button
+        onClick={() => {
+          if (username && city && cityId) {
+            historyPush('/weather');
+          } else if (username && city) {
+            alert('Please, choose the city from the dropdown.');
+          } else {
+            alert('Please, fill out all the fields.');
+          }
+        }}
+      >
+        Сохранить
+      </button>
     </div>
   );
 }
@@ -44,11 +58,13 @@ Welcome.propTypes = {
     username: PropTypes.string,
     city: PropTypes.string,
   }),
+  cityId: PropTypes.number,
   fetching: PropTypes.bool,
   searched: PropTypes.array,
   updateField: PropTypes.func,
   updateDynamicField: PropTypes.func,
   updateCityId: PropTypes.func,
+  historyPush: PropTypes.func,
 };
 
 export default Welcome;
