@@ -11,8 +11,9 @@ const Wrapper = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(123, 31, 162, 0.8);
-    color: #fff;
+    background-color: #bc8ed0;
+    color: rgb(250, 235, 190);
+    font-weight: 700;
   }
 `;
 

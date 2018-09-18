@@ -13,6 +13,7 @@ import Button from 'components/01-ui/Button';
 import CenteringContainer from 'components/01-ui/CenteringContainer';
 
 import Wrapper from './styled/Wrapper';
+import Title from './styled/Title';
 import Instructions from './styled/Instructions';
 import Fields from './styled/Fields';
 import NestedLink from './styled/NestedLink';
@@ -31,14 +32,20 @@ function Welcome({
   return (
     <Wrapper>
       <CenteringContainer maxWidth="700">
+        <Title>Another Weather</Title>
         <Instructions>
           <p>
-            User name isn{"'"}t really necessary, but were mentioned
-            in the test task requirements, so ¯\_(ツ)_/¯.
+            Well, this is another weather application that you
+            definitely need.
           </p>
           <p>
-            The dynamic search provided by OpenWeatherMap and it{"'"}s
-            actually not the best one. Check it out{' '}
+            User name and the save button aren{"'"}t really necessary,
+            but were mentioned in the test task requirements, so
+            ¯\_(ツ)_/¯.
+          </p>
+          <p>
+            The dynamic search provided by OpenWeatherMap and,
+            actually, it{"'"}s not the best one. Check it out{' '}
             <NestedLink href="https://openweathermap.org/find">
               (external link)
             </NestedLink>{' '}
