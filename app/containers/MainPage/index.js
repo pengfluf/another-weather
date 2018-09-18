@@ -43,7 +43,9 @@ export class MainPage extends React.Component {
 
     this.props.updateTimer(
       setTimeout(() => {
-        this.props.findCity(query);
+        if (query.length > 1) {
+          this.props.findCity(query);
+        }
       }, 500),
     );
   }

@@ -9,20 +9,18 @@ import PropTypes from 'prop-types';
 
 import capitalize from 'helpers/capitalize';
 
+import Input from 'components/Input';
+
 function InputField({ name, value, updateField }) {
   return (
-    <div>
-      {/* eslint-disable jsx-a11y/label-has-for */}
-      <label htmlFor={`inputField-${name}`}>{capitalize(name)}</label>
-      <input
-        id={`inputField-${name}`}
-        type="text"
-        value={value}
-        onChange={e => updateField(name, e.target.value)}
-        placeholder={capitalize(name)}
-        required
-      />
-    </div>
+    <Input
+      id={`inputField-${name}`}
+      type="text"
+      value={value}
+      onChange={e => updateField(name, e.target.value)}
+      placeholder={capitalize(name)}
+      required
+    />
   );
 }
 

@@ -6,6 +6,8 @@
 
 export const API_KEY = 'b1d1a634025f6aad9fa10eaf9452b864';
 export const BASE_URL = 'https://api.openweathermap.org/data/2.5';
+export const ICON_URL = 'https://openweathermap.org/img/w';
+export const FLAG_URL = 'https://openweathermap.org/images/flags';
 
 export const START_FETCHING = 'MainPage/START_FETCHING';
 export const STOP_FETCHING = 'MainPage/STOP_FETCHING';

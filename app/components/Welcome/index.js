@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 
 import InputField from 'components/InputField';
 import DynamicInputField from 'components/DynamicInputField';
+import Button from 'components/Button';
+
+import Wrapper from './styled/Wrapper';
 
 function Welcome({
   fields,
@@ -22,7 +25,7 @@ function Welcome({
 }) {
   const { username, city } = fields;
   return (
-    <div>
+    <Wrapper>
       <InputField
         name="username"
         value={username}
@@ -38,7 +41,8 @@ function Welcome({
         updateDynamicField={updateDynamicField}
         updateCityId={updateCityId}
       />
-      <button
+      <Button
+        text="Save"
         onClick={() => {
           if (username && city && cityId) {
             historyPush('/weather');
@@ -48,10 +52,8 @@ function Welcome({
             alert('Please, fill out all the fields.');
           }
         }}
-      >
-        Save
-      </button>
-    </div>
+      />
+    </Wrapper>
   );
 }
 

@@ -17,7 +17,9 @@ function WeatherHour({ time, main, weather, wind }) {
       <p>{Math.round(wind.speed)} m/s</p>
       <p>{weather[0].description}</p>
       <img
-        src={`http://openweathermap.org/img/w/${weather[0].icon}.png`}
+        src={`https://openweathermap.org/img/w/${
+          weather[0].icon
+        }.png`}
         alt=""
       />
     </Wrapper>

@@ -9,37 +9,10 @@ import PropTypes from 'prop-types';
 
 import capitalize from 'helpers/capitalize';
 
-import CityPreview from 'components/CityPreview';
-import Loading from 'components/Loading';
+import Input from 'components/Input';
+import CitiesPreview from 'components/CitiesPreview';
 
-function cities(
-  searched,
-  fetching,
-  cityId,
-  updateField,
-  updateDynamicField,
-  updateCityId,
-  getWeather,
-) {
-  if (!fetching) {
-    if (searched.length && !cityId) {
-      return searched.map(city => (
-        <CityPreview
-          key={city.id}
-          city={city}
-          updateField={updateField}
-          updateCityId={updateCityId}
-          getWeather={getWeather}
-        />
-      ));
-    } else if (!cityId) {
-      return <div>Nothing was found.</div>;
-    }
-  } else {
-    return <Loading />;
-  }
-  return null;
-}
+import Wrapper from './styled/Wrapper';
 
 function DynamicInputField({
   name,
@@ -53,10 +26,9 @@ function DynamicInputField({
   getWeather,
 }) {
   return (
-    <div>
-      {/* eslint-disable jsx-a11y/label-has-for */}
-      <label htmlFor={`inputField-${name}`}>{capitalize(name)}</label>
-      <input
+    <Wrapper>
+      <Input
+        dynamic
         id={`inputField-${name}`}
         type="text"
         value={value}
@@ -67,19 +39,20 @@ function DynamicInputField({
           updateDynamicField(name, e.target.value);
         }}
         placeholder={capitalize(name)}
+        dropdown={value.length}
         required
       />
-      {value &&
-        cities(
-          searched,
-          fetching,
-          cityId,
-          updateField,
-          updateDynamicField,
-          updateCityId,
-          getWeather,
-        )}
-    </div>
+      {value && (
+        <CitiesPreview
+          searched={searched}
+          fetching={fetching}
+          cityId={cityId}
+          updateField={updateField}
+          updateCityId={updateCityId}
+          getWeather={getWeather}
+        />
+      )}
+    </Wrapper>
   );
 }
 

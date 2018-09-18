@@ -20,7 +20,7 @@ import {
 export const initialState = fromJS({
   cityId: null,
   fields: {
-    username: '',
+    username: 'John Doe',
     city: '',
   },
   searched: [],

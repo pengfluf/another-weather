@@ -7,7 +7,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FLAG_URL, ICON_URL } from 'containers/MainPage/constants';
+
 import Wrapper from './styled/Wrapper';
+import City from './styled/City';
+import Flag from './styled/Flag';
+import WeatherIcon from './styled/WeatherIcon';
+import Temperature from './styled/Temperature';
+import Wind from './styled/Wind';
 
 function CityPreview({
   city,
@@ -15,7 +22,7 @@ function CityPreview({
   updateCityId,
   getWeather,
 }) {
-  const { id, name, sys } = city;
+  const { id, name, sys, main, weather, wind } = city;
   return (
     <Wrapper
       onClick={() => {
@@ -26,13 +33,19 @@ function CityPreview({
         }
       }}
     >
-      <p>
+      <City>
         {name}, {sys.country}
-      </p>
-      <img
-        src={`http://openweathermap.org/images/flags/${sys.country.toLowerCase()}.png`}
-        alt=""
+      </City>
+      <Flag
+        src={`${FLAG_URL}/${sys.country.toLowerCase()}.png`}
+        alt="country flag"
       />
+      <Temperature>{Math.round(main.temp)}°C</Temperature>
+      <WeatherIcon
+        src={`${ICON_URL}/${weather[0].icon}.png`}
+        alt="weather icon"
+      />
+      <Wind>wind {wind.speed} m/s</Wind>
     </Wrapper>
   );
 }
