@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     position: fixed;
     z-index: 6;
     top: 45vh;
-    left: 50vw;
+    left: 45vw;
 
     width: 100px;
     height: 100px;

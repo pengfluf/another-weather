@@ -9,8 +9,14 @@
 import React from 'react';
 import MainPage from 'containers/MainPage';
 
+import Wrapper from './styled/Wrapper';
+
 function App() {
-  return <MainPage />;
+  return (
+    <Wrapper>
+      <MainPage />
+    </Wrapper>
+  );
 }
 
 export default App;

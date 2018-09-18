@@ -6,10 +6,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import DynamicInputField from 'components/DynamicInputField';
-import LogoSvg from 'components/LogoSvg';
-import CenteringContainer from 'components/CenteringContainer';
+import LogoSvg from 'components/01-ui/LogoSvg';
+import CenteringContainer from 'components/01-ui/CenteringContainer';
 
 import Wrapper from './styled/Wrapper';
 import Username from './styled/Username';
@@ -30,9 +31,11 @@ function Header({
     <Wrapper>
       <CenteringContainer>
         <LeftColumn>
-          <LogoH1>
-            <LogoSvg />
-          </LogoH1>
+          <Link to="/welcome">
+            <LogoH1>
+              <LogoSvg />
+            </LogoH1>
+          </Link>
           <Username>{fields.username}</Username>
         </LeftColumn>
         <DynamicInputField

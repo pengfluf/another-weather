@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 
 import Header from 'components/Header';
 import WeatherDay from 'components/WeatherDay';
-import Loading from 'components/Loading';
-import CenteringContainer from 'components/CenteringContainer';
+import Loading from 'components/01-ui/Loading';
+import CenteringContainer from 'components/01-ui/CenteringContainer';
 
 import Wrapper from './styled/Wrapper';
 import Title from './styled/Title';

@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import CityPreview from 'components/CityPreview';
-import Loading from 'components/Loading';
+import Loading from 'components/01-ui/Loading';
 
 import CityPreviewWrapper from 'components/CityPreview/styled/Wrapper';
 

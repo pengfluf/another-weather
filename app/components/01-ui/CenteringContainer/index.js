@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CenteringContainer = styled.div`
-  max-width: 1200px;
+  max-width: ${({ maxWidth }) => maxWidth || '1200'}px;
   margin-left: auto;
   margin-right: auto;
 `;

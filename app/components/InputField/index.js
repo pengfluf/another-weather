@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 import capitalize from 'helpers/capitalize';
 
-import Input from 'components/Input';
+import Input from 'components/01-ui/Input';
 
 function InputField({ name, value, updateField }) {
   return (
