@@ -10,10 +10,18 @@ import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import WeatherDay from 'components/WeatherDay';
 import Loading from 'components/Loading';
+import CenteringContainer from 'components/CenteringContainer';
+
+import Wrapper from './styled/Wrapper';
+import Title from './styled/Title';
 
 class Weather extends React.Component {
   componentDidMount() {
-    this.props.getWeather(this.props.cityId);
+    if (this.props.cityId) {
+      this.props.getWeather(this.props.cityId);
+    } else {
+      this.props.history.push('/welcome');
+    }
   }
 
   render() {
@@ -30,24 +38,26 @@ class Weather extends React.Component {
     } = this.props;
     if (list) {
       return (
-        <div>
-          <Header
-            fields={fields}
-            searched={searched}
-            fetching={fetching}
-            cityId={cityId}
-            updateField={updateField}
-            updateDynamicField={updateDynamicField}
-            updateCityId={updateCityId}
-            getWeather={getWeather}
-          />
-          <h1>
-            {city.name}, {city.country}
-          </h1>
-          {list.map(({ day, hours }) => (
-            <WeatherDay key={day} day={day} hours={hours} />
-          ))}
-        </div>
+        <CenteringContainer>
+          <Wrapper>
+            <Header
+              fields={fields}
+              searched={searched}
+              fetching={fetching}
+              cityId={cityId}
+              updateField={updateField}
+              updateDynamicField={updateDynamicField}
+              updateCityId={updateCityId}
+              getWeather={getWeather}
+            />
+            <Title>
+              {city.name}, {city.country}
+            </Title>
+            {list.map(({ day, hours }) => (
+              <WeatherDay key={day} day={day} hours={hours} />
+            ))}
+          </Wrapper>
+        </CenteringContainer>
       );
     }
     return <Loading />;
@@ -73,6 +83,9 @@ Weather.propTypes = {
   updateDynamicField: PropTypes.func,
   updateCityId: PropTypes.func,
   getWeather: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
 };
 
 export default Weather;

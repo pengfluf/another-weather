@@ -29,6 +29,7 @@ function DynamicInputField({
     <Wrapper>
       <Input
         dynamic
+        dropdown={value.length}
         id={`inputField-${name}`}
         type="text"
         value={value}
@@ -39,7 +40,6 @@ function DynamicInputField({
           updateDynamicField(name, e.target.value);
         }}
         placeholder={capitalize(name)}
-        dropdown={value.length}
         required
       />
       {value && (

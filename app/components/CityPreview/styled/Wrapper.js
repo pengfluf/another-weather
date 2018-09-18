@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   align-items: center;
   cursor: pointer;
   padding: 10px 15px;
+  background-color: #fff;
 
   &:hover {
     background-color: antiquewhite;

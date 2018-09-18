@@ -45,7 +45,7 @@ function CityPreview({
         src={`${ICON_URL}/${weather[0].icon}.png`}
         alt="weather icon"
       />
-      <Wind>wind {wind.speed} m/s</Wind>
+      <Wind>wind {Math.round(wind.speed)} m/s</Wind>
     </Wrapper>
   );
 }

@@ -8,6 +8,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DynamicInputField from 'components/DynamicInputField';
+import LogoSvg from 'components/LogoSvg';
+import CenteringContainer from 'components/CenteringContainer';
+
+import Wrapper from './styled/Wrapper';
+import Username from './styled/Username';
+import LogoH1 from './styled/LogoH1';
+import LeftColumn from './styled/LeftColumn';
 
 function Header({
   fields,
@@ -20,20 +27,27 @@ function Header({
   getWeather,
 }) {
   return (
-    <div>
-      <p>{fields.username}</p>
-      <DynamicInputField
-        name="city"
-        value={fields.city}
-        searched={searched}
-        fetching={fetching}
-        cityId={cityId}
-        updateField={updateField}
-        updateDynamicField={updateDynamicField}
-        updateCityId={updateCityId}
-        getWeather={getWeather}
-      />
-    </div>
+    <Wrapper>
+      <CenteringContainer>
+        <LeftColumn>
+          <LogoH1>
+            <LogoSvg />
+          </LogoH1>
+          <Username>{fields.username}</Username>
+        </LeftColumn>
+        <DynamicInputField
+          name="city"
+          value={fields.city}
+          searched={searched}
+          fetching={fetching}
+          cityId={cityId}
+          updateField={updateField}
+          updateDynamicField={updateDynamicField}
+          updateCityId={updateCityId}
+          getWeather={getWeather}
+        />
+      </CenteringContainer>
+    </Wrapper>
   );
 }
 
