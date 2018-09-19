@@ -2,7 +2,7 @@
 
 This is another weather application that you definitely need. :wink:
 
-Based on [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate). Check it out.
+The project was created using [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate). Check it out.
 
 ## Features
 
