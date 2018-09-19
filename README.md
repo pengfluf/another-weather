@@ -1,6 +1,7 @@
 # Another Weather
 
 This is another weather application that you definitely need. :wink:
+Based on [React Boilerplate](https://github.com/react-boilerplate/react-boilerplate). Check it out.
 
 ## Features
 
